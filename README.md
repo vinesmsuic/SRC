@@ -1,18 +1,18 @@
-# SRC（Simulation RPG Construction）
+# SRC (Simulation RPG Construction)
 
-SRC（Simulation RPG Construction）の C# .NET への移植版 SRC#（Simulation RPG Construction Sharp）。
+SRC# (Simulation RPG Construction Sharp) is a C# .NET port of SRC (Simulation RPG Construction).
 
-## SRC派生ソフトウェア
+## SRC Derivative Software
 
-本リポジトリで開発・配布しているソフトウェアの使用にあたってはSRC派生版ソフトウェアの利用における基本的規則を遵守してください。
+When using the software developed and distributed in this repository, please comply with the basic rules for using SRC derivative software.
 
-SRC公式サイト[派生版解説ページ](http://www.src-srpg.jpn.org/development_hasei.shtml)内のSRC派生版ソフトウェアの利用における基本的規則
-- [規約(形式１)](http://www.src-srpg.jpn.org/hasei_kiyaku1.html)
-- [規約(形式２)](http://www.src-srpg.jpn.org/hasei_kiyaku2.html)
+Basic rules for using SRC derivative software on the SRC official site [Derivative Version Explanation Page](http://www.src-srpg.jpn.org/development_hasei.shtml)
+- [Terms (Format 1)](http://www.src-srpg.jpn.org/hasei_kiyaku1.html)
+- [Terms (Format 2)](http://www.src-srpg.jpn.org/hasei_kiyaku2.html)
 
-本リポジトリへの転記
-- [規約(形式１)](src_hasei_kiyaku1.md)
-- [規約(形式２)](src_hasei_kiyaku2.md)
+Transcription to this repository
+- [Terms (Format 1)](src_hasei_kiyaku1.md)
+- [Terms (Format 2)](src_hasei_kiyaku2.md)
 
 ## Original
 
@@ -23,49 +23,63 @@ SRC公式サイト[派生版解説ページ](http://www.src-srpg.jpn.org/develop
 
 - [SRC](./SRC)
     - [SRC_20121125](./SRC/SRC_20121125)
-        - 元にしたSRCのコピー
-        - 参照用にUTF-8に文字コードを変更してある
+        - Copy of the original SRC used as a base
+        - Character encoding changed to UTF-8 for reference
     - [Help](./SRC/Help)
-        - SRC Ver2.2.33のヘルププロジェクトのコピー
+        - Copy of the SRC Ver2.2.33 help project
     - [HelpChm](./SRC/HelpChm)
-        - HelpをCHM形式に変換したもの
+        - Help converted to CHM format
 - [SRC.NET](./SRC.NET)
-    - SRC_20121125をツールで.NETにコンバートしたもの
+    - SRC_20121125 converted to .NET using tools
 - [SRC.Sharp](./SRC.Sharp)
-    - SRCのC#実装の一部、SRC#
+    - Partial C# implementation of SRC, SRC#
     - [SRCCore](./SRC.Sharp/SRCCore)
-        - SRCのコア部分
+        - Core part of SRC
         - .NET Standard 2.1
     - [SRCDataLinter](SRC.Sharp/SRCDataLinter)
-        - SRCデータのバリデータ
+        - Validator for SRC data
         - .NET 6
         - GitHub Action: https://github.com/7474/SRC-DataLinter
         - Docker Image: https://hub.docker.com/r/koudenpa/srcdatalinter
             - ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/koudenpa/srcdatalinter)
     - [SRCSharpForm](./SRC.Sharp/SRCSharpForm)
-        - Windows Forms実装のSRC#Form
-        - SRC#Formの仮実行を行える
+        - Windows Forms implementation of SRC#Form
+        - Allows provisional execution of SRC#Form
         - .NET 6
-        - 元のSRCとの区別の便宜上、バージョンは `3.x.x` としている
-            - SRCCore と比べてメジャーバージョンが +3
+        - For convenience of distinction from the original SRC, the version is set as `3.x.x`
+            - Major version is +3 compared to SRCCore
         - HelpURL: https://srch.7474.jp/
     - [SRCTestForm](./SRC.Sharp/SRCTestForm)
-        - 動作の確認用フォーム
-        - データの閲覧を行える
+        - Test form for operation verification
+        - Allows viewing of data
         - .NET 6
     - [SRCTestBlazor](./SRC.Sharp/SRCTestBlazor)
-        - 動作確認用Blazor WebAssemblyアプリケーション
-        - データの閲覧を行える
+        - Blazor WebAssembly application for operation verification
+        - Allows viewing of data
         - .NET 6
-        - 動作URL:
+        - URLs:
             - https://7474.github.io/SRC/
             - https://srcv.7474.jp/
 
-### SRC#Form 簡易実行手順
+### SRC#Form Simple Execution Procedure
 
-1. Windows 10 64bit版に[.NET 6 ランタイムをインストール](https://docs.microsoft.com/ja-jp/dotnet/core/install/windows)する
-1. [Release](https://github.com/7474/SRC/releases) から SRCSharpForm.zip をダウンロード、ないし SRCSharpForm をビルドして実行ファイル（ SRCSharpForm.exe （ビルドした場合は加えて付随するDLL））を得る
-1. 構築済のSRCフォルダ内に実行ファイルをコピーする
-1. SRCSharpForm.exe を実行する
+1. Install [.NET 6 runtime](https://docs.microsoft.com/en-us/dotnet/core/install/windows) on Windows 10 64-bit
+2. Download SRCSharpForm.zip from [Release](https://github.com/7474/SRC/releases), or build SRCSharpForm to obtain the executable file (SRCSharpForm.exe and accompanying DLLs if built)
+3. Copy the executable file into a pre-built SRC folder
+4. Run SRCSharpForm.exe
 
-SRCに付属のサンプルシナリオや https://github.com/7474/SRC-SharpTestScenario で動作確認しながら作っています。
+
+### Build
+
+```
+dotnet restore
+
+dotnet build
+```
+
+```
+dotnet run -p SRC.Sharp/SRCSharpForm
+```
+
+
+We are developing this while testing with the sample scenarios included with SRC and https://github.com/7474/SRC-SharpTestScenario.
